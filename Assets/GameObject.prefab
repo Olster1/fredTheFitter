@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9182440354195962998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4934091350407644}
+  - component: {fileID: 2412091148447374347}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4934091350407644
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182440354195962998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.8548243, y: 1.0703344, z: 6.3101425}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2412091148447374347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182440354195962998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c60cebe4dc12417db1160fa09e8a458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overworldTextObj: {fileID: 4900000, guid: 391c375e527fc470d9856e55fc2c44cf, type: 3}
+  spritePrefab: {fileID: 2870272500369178713, guid: d3565f27d55364e29936d4cb5f2a4990,
+    type: 3}
+  waterTex: {fileID: 2800000, guid: 672e9931eab0542a49f3953b587be067, type: 3}
+  treeTex: {fileID: 2800000, guid: fd37d1f16fc2b4910bf6490f121b339b, type: 3}
+  mushroomTex: {fileID: 2800000, guid: fd805b2bfe4b04691baf53aa7b23755f, type: 3}
+  cactusTex: {fileID: 2800000, guid: b8fcacfb30e3a4854a0aa8434432fa1d, type: 3}
+  rockTex: {fileID: 2800000, guid: 8c36792382f764989aaf177e7fc1688b, type: 3}
+  alienTex: {fileID: 2800000, guid: 2596dd245a360439c8815416bd590391, type: 3}
+  tileTex: {fileID: 2800000, guid: 0e3e9e0ea0bda4f3bb165153bef918e1, type: 3}

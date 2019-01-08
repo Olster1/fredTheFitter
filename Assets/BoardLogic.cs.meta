@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 43f1ef9d22fbe4b97bed8486b3f001dd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spriteForGridPrefab: {instanceID: 0}
+  - stoneTex: {instanceID: 0}
+  - woodTex: {instanceID: 0}
+  - metalTex: {instanceID: 0}
+  - gridTex: {instanceID: 0}
+  - explosiveTex: {instanceID: 0}
+  - greenWinTex: {instanceID: 0}
+  - redWinTex: {instanceID: 0}
+  - explosiveSound: {fileID: 8300000, guid: 3c10d330879624046b2fdad30cf1fa15, type: 3}
+  - moveSound: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
