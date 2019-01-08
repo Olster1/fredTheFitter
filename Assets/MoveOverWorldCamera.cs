@@ -13,46 +13,57 @@ namespace Overworld
         private Vector3 lastMouseP;
         private Vector3 camVel;
         private Transform camTransform;
+        private bool lastMousePSet;
+        public float AccelForce;
 
         public void Start()
         {
             keyStates = new AppKeyStates();
             cameraInScene = GameObject.Find("OverworldCam");
             camTransform = cameraInScene.GetComponent<Transform>();
+            lastMousePSet = false;
+            camVel = new Vector3();
         }
 
-        public void Update()
+        public void FixedUpdate()
         {
-
             keyStates.ProcessKeyStates(cameraInScene);
-            float ySpace = 1.0f;
-            float xSpace = ySpace;
 
-            if (keyStates.wasPressed(ButtonType.BUTTON_LEFT_MOUSE))
-            {
-                lastMouseP = keyStates.mouseInWorldSpace;
+            if(!lastMousePSet) {
+                lastMouseP = keyStates.mouseInScreenSpace;
+                lastMousePSet = true;
             }
-
             Vector3 accel = new Vector3(0, 0, 0);
             if (keyStates.isDown(ButtonType.BUTTON_LEFT_MOUSE))
             {
-                Vector3 diffVec = keyStates.mouseInWorldSpace - lastMouseP;
+                //get acceleration
+                Vector3 diffVec = keyStates.mouseInScreenSpace- lastMouseP;
                 diffVec = Vector3.Normalize(diffVec);
-                accel = 600.0f * diffVec;
+                accel = AccelForce * diffVec;
                 // error_printFloat2("diff: ", accel.xy.E);
-                accel.x *= -1; //inverse the pull direction. Since y is down for mouseP, y is already flipped 
+                //accel.x *= -1; //inverse the pull direction. Since y is down for mouseP, y is already flipped 
             }
 
-            camVel = Time.deltaTime * accel + camVel;
+            camVel += Time.deltaTime * accel + camVel;
             camVel = camVel - 0.6f * camVel;
             camTransform.position += Time.deltaTime * camVel;
 
-            lastMouseP = keyStates.mouseInWorldSpace;
-                //float factor = 10.0f;
-                //Vector3 newPos = new Vector3();
-                //newPos.x = ((int)((camTransform.position.x + 0.5f) * factor)) / factor;
-                //newPos.y = ((int)((camTransform.position.y + 0.5f) * factor)) / factor;
-                //camTransform.position = newPos;
+            lastMouseP = keyStates.mouseInScreenSpace;
+
+            if (keyStates.wasReleased(ButtonType.BUTTON_LEFT_MOUSE))
+            {
+                lastMousePSet = false;
+            }
+            //float factor = 10.0f;
+            //Vector3 newPos = new Vector3();
+            //newPos.x = ((int)((camTransform.position.x + 0.5f) * factor)) / factor;
+            //newPos.y = ((int)((camTransform.position.y + 0.5f) * factor)) / factor;
+            //camTransform.position = newPos;
+        }
+        public void Update()
+        {
+
+
         }
     }
 }

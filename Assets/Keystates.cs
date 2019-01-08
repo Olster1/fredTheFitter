@@ -31,6 +31,8 @@ namespace easy_keystates {
 
         public GameButton[] gameButtons;
         public Vector3 mouseInWorldSpace;
+        public Vector3 mouseInScreenSpace;
+
         public AppKeyStates()
         {
             this.gameButtons = new GameButton[(int)ButtonType.BUTTON_COUNT];
@@ -111,14 +113,15 @@ namespace easy_keystates {
 
             Camera cam = cameraInScene.GetComponent<Camera>();
             Vector2 mousePos = Input.mousePosition;
-            this.mouseInWorldSpace = cam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane));
+            Vector3 mouseP_withZ = new Vector3(mousePos.x, mousePos.y, cam.nearClipPlane);
+            this.mouseInWorldSpace = cam.ScreenToWorldPoint(mouseP_withZ);
             //Debug.Log(this.mouseInWorldSpace.ToString());
-
+            this.mouseInScreenSpace = mouseP_withZ;
             bool leftMouseDown = Input.GetMouseButton(0);
             //if (leftMouseDown) { 
             //    Debug.Log("is Down: " + leftMouseDown);
             //}
-        ProcessGameKey(ButtonType.BUTTON_LEFT_MOUSE, leftMouseDown, leftMouseDown == mouseWasDown);
+            ProcessGameKey(ButtonType.BUTTON_LEFT_MOUSE, leftMouseDown, leftMouseDown == mouseWasDown);
 
             //if(wasReleased(ButtonType.BUTTON_LEFT_MOUSE)) {
             //    Debug.Log("heya");

@@ -351,11 +351,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: de63a58649b0c45ceac9b96855d588dc, type: 3}
-    m_FontSize: 40
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 52
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -35988,6 +35988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c60cebe4dc12417db1160fa09e8a458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AccelForce: 300
 --- !u!1001 &1064783435
 PrefabInstance:
   m_ObjectHideFlags: 0
