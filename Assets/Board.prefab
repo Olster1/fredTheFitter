@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boardWidth: 6
   boardHeight: 10
-  cameraScale: 4
+  cameraScale: 5
   groupId: 0
   levelName: 
   levelData: 

@@ -13,8 +13,9 @@ namespace game_defines
 
         public static readonly float FADE_TIMER_INTERVAL = 0.3f;
         public static readonly int XP_PER_LINE = 100;
-        public static readonly LevelType START_LEVEL = LevelType.LEVEL_16;
+        public static readonly LevelType START_LEVEL = LevelType.LEVEL_0;
         public static readonly StartMode START_MODE = StartMode.BOARD;
+        public static readonly bool CHEAT_MODE = true;
 
         //#define DEVELOPER_MODE 1
         //#define DEMO_MODE 0

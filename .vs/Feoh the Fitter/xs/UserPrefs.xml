@@ -1,11 +1,19 @@
 ﻿<Properties StartupConfiguration="{761AE4E8-645F-2C92-772C-32DD874E7E43}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Keystates.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/MoveCloud.cs">
     <Files>
-      <File FileName="Assets/TransitionState.cs" Line="260" Column="6" />
-      <File FileName="Assets/BoardLogic.cs" Line="1142" Column="58" />
-      <File FileName="Assets/MoveOverWorldCamera.cs" Line="51" Column="54" />
-      <File FileName="Assets/ClickLevel.cs" Line="57" Column="31" />
-      <File FileName="Assets/Keystates.cs" Line="35" Column="9" />
+      <File FileName="Assets/TransitionState.cs" Line="114" Column="46" />
+      <File FileName="Assets/BoardLogic.cs" Line="1076" Column="167" />
+      <File FileName="Assets/MoveOverWorldCamera.cs" Line="44" Column="19" />
+      <File FileName="Assets/ClickLevel.cs" Line="39" Column="9" />
+      <File FileName="Assets/Keystates.cs" Line="119" Column="52" />
+      <File FileName="Assets/objectBob.cs" Line="20" Column="15" />
+      <File FileName="Assets/GameDefines.cs" Line="18" Column="47" />
+      <File FileName="Assets/ExtraShape.cs" Line="89" Column="21" />
+      <File FileName="Assets/CloudShader.shader" Line="54" Column="50" />
+      <File FileName="Assets/TexturedQuad.shader" Line="69" Column="1" />
+      <File FileName="Assets/MoveCloud.cs" Line="18" Column="9" />
+      <File FileName="Assets/BackToMapBtn.cs" Line="56" Column="151" />
+      <File FileName="Assets/Levels.cs" Line="114" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

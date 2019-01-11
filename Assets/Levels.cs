@@ -1,6 +1,8 @@
 ﻿using System;
 using easy_timer;
+using UnityEngine;
 using UnityEngine.Assertions;
+using easy_transition;
 namespace Levels
 {
     [Serializable]
@@ -96,11 +98,27 @@ namespace Levels
         public LevelGroup() {
             groups = new LevelType[22]; //22 is just the max number of levels that can be in a group;
             count = 0;
+
+
+        }
+
+
+        public Vector3 GetPos(TransitionState state) {
+            Vector3 currentAverage = new Vector3(0, 0, 0);
+            for(int i = 0; i < count; ++i) {
+                LevelType t = groups[i];
+                Vector3 posToAdd = state.levelPosInOverworld[(int)t];
+                currentAverage += posToAdd;
+            }
+            Vector3 average = currentAverage / count;
+            average.z = -10;
+            return average;
         }
 
         public void AddLevelToGroup(LevelType type) {
             Assert.IsTrue(count < groups.Length);
             groups[count++] = type;
+
         }
     }
 

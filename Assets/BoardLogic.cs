@@ -562,6 +562,9 @@ public class BoardLogic : MonoBehaviour
         extraShapes[indexAt] = new ExtraShape(new Vector2(), 1, 0);
         ExtraShape shape = extraShapes[indexAt];
         Assert.IsNotNull(shape.timer);
+        //if(currentLevelType == LevelType.LEVEL_20) {
+        //    Debug.Log("Length is " + extraShapeCount);
+        //}
         return shape;
     }
 
@@ -737,8 +740,6 @@ public class BoardLogic : MonoBehaviour
                             shapeOnStack.CopyShape(shp);
                             shp.pos.x = xAt;
                             shp.pos.y = yAt;
-                            shp.active = true;
-                            Assert.IsTrue(shp.active);
                         }
                         xAt++;
                         at++;
@@ -1008,6 +1009,7 @@ public class BoardLogic : MonoBehaviour
 
             transitionState.saveStates[(int)currentLevelType].state = LevelState.LEVEL_STATE_COMPLETED;
 
+            LevelGroup nextGroup = null;
             bool completedGroup = true;
             LevelType nextLevel = LevelType.LEVEL_0;
             LevelGroup group = transitionState.levelGroups[this.groupId];
@@ -1031,7 +1033,8 @@ public class BoardLogic : MonoBehaviour
                     //This assumes groups have to be consecutive ie. have to have group 0, 1, 2, 3 can't 
                     //miss any ie. 0, 2, 4
                     int nextGroupId = groupId + 1;
-                    LevelGroup nextGroup = transitionState.levelGroups[nextGroupId];
+
+                    nextGroup = transitionState.levelGroups[nextGroupId];
                     if (nextGroup.count == 0)
                     {
                         //FINSIHED THE GAME 
@@ -1040,7 +1043,7 @@ public class BoardLogic : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("unclock Groups");
+                        //Debug.Log("unclock Groups");
                         Assert.IsTrue(nextGroup.count > 0);
                         nextLevel = nextGroup.groups[0];
 
@@ -1069,7 +1072,8 @@ public class BoardLogic : MonoBehaviour
                 {
                     if (completedGroup)
                     {
-                        TransitionState.OverworldTransLevelData data = new TransitionState.OverworldTransLevelData(currentLevelType);
+                        Assert.IsNotNull(nextGroup);
+                        TransitionState.OverworldTransLevelData data = new TransitionState.OverworldTransLevelData(currentLevelType, nextGroup.GetPos(transitionState));
                         transitionState.SetTransition_(transitionState.BackToWorldTransition, data);
                     }
                     else

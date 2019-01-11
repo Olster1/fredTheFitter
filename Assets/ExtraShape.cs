@@ -81,7 +81,14 @@ namespace ExtraShapeNameSpace
             //Debug.Log(this.timer.period);
             newShape.timer.period = this.timer.period;
             newShape.lagTimer.period = this.lagTimer.period;
-            newShape.lagPeriod = this.lagTimer.period; 
+            newShape.lagPeriod = this.lagTimer.period;
+            Assert.IsTrue(newShape.timer != this.timer);
+
+            if(this.lagTimer.period > 0) {
+                newShape.active = false;
+            } else {
+                newShape.active = true;
+            }
 
             newShape.perpSize = this.perpSize;
 

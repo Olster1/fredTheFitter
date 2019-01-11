@@ -32,11 +32,15 @@ namespace easy_transition
         public GameObject[] levelObjects;
 
         [HideInInspector]
+        public Vector3[] levelPosInOverworld;
+
+        [HideInInspector]
         public bool playFoundSound;
         [HideInInspector]
         public bool canPlayFoundSound;
 
         public AudioClip foundSound;
+        public GameObject overworldCamera;
 
         [HideInInspector]
         public RectTransform leftTrans;
@@ -55,6 +59,11 @@ namespace easy_transition
         [HideInInspector]
         public ClickLevel[] overworldStars;
 
+
+
+
+        [HideInInspector]
+        public Vector3 camPosForAttention;
 
         public void DeleteSaveFile()
         {
@@ -102,6 +111,7 @@ namespace easy_transition
             LoadSaveFile();
 
             overworldStars = new ClickLevel[(int)LevelType.LEVEL_COUNT];
+            levelPosInOverworld = new Vector3[(int)LevelType.LEVEL_COUNT];
 
             DontDestroyOnLoad(gameObject);
         }
@@ -119,6 +129,10 @@ namespace easy_transition
             {
                 canPlayFoundSound = true;
             }
+
+
+
+            camPosForAttention = this.overworldCamera.GetComponent<Camera>().transform.position;
             //RectTransform canvasScaler = obj.GetComponent<Canvas>();
             //Vector2 refResolution = canvasScaler.referenceResolution();
         }
@@ -201,8 +215,10 @@ namespace easy_transition
         public class OverworldTransLevelData
         {
             public LevelType currentLvl;
-            public OverworldTransLevelData(LevelType t)
+            public Vector3 posToLookAt;
+            public OverworldTransLevelData(LevelType t, Vector3 posToLookAt)
             {
+                this.posToLookAt = posToLookAt;
                 currentLvl = t;
             }
         }
@@ -223,6 +239,9 @@ namespace easy_transition
                     overworldStars[i].Renew();
                 }
             }
+
+            camPosForAttention = nxtLevelData.posToLookAt;
+            overworldCamera.GetComponent<Transform>().position = camPosForAttention;
 
         }
 

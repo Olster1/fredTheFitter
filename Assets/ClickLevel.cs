@@ -8,6 +8,7 @@ using Levels;
 using UnityEngine.Assertions;
 using easy_transition;
 using easy_timer;
+using game_defines;
 using UnityEngine.EventSystems;
 
 public class ClickLevel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -30,6 +31,11 @@ public class ClickLevel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         transitionState = canvasObj.GetComponent<TransitionState>();
 
         //Image img = gameObject.GetComponent<Image>();
+
+
+        Vector3 thisPos = gameObject.GetComponent<Transform>().position;
+        thisPos.z = -10;
+        transitionState.levelPosInOverworld[(int)levelToLoad] = thisPos;
 
         saveState = transitionState.saveStates[(int)levelToLoad];
         scaleTimer = new Timer(1);
@@ -72,7 +78,7 @@ public class ClickLevel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     // Update is called once per frame
     void Update()
     {
-        if (saveState.state == LevelState.LEVEL_STATE_LOCKED)
+        if (saveState.state == LevelState.LEVEL_STATE_LOCKED && !GameDefines.CHEAT_MODE)
         {
             but.interactable = false;
         }
